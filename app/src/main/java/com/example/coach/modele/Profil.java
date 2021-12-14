@@ -1,6 +1,8 @@
 package com.example.coach.modele;
 
-public class Profil {
+import java.io.Serializable;
+
+public class Profil implements Serializable {
 
     // constantes
     private static final Integer minFemme = 15; // maigre si en dessous
@@ -14,6 +16,14 @@ public class Profil {
     private int sexe;
     private float img;
     private String message;
+
+    /**
+     * Constructeur de la classe Profil
+     * @param poids
+     * @param taille
+     * @param age
+     * @param sexe
+     */
     public Profil(int poids, int taille, int age, int sexe) {
         this.poids = poids;
         this.taille = taille;
@@ -22,8 +32,6 @@ public class Profil {
         this.calculIMG();
         this.resultIMG();
     }
-
-
 
     public int getPoids() {
         return poids;

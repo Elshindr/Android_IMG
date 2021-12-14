@@ -20,13 +20,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtTaille;
     private TextView txtAge;
     private RadioButton rdFemme;
+    private RadioButton rdHomme;
     private TextView lblIMG;
     private ImageView imgSmiley;
     private Button btnCalc;
 
     private Controle controle;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +43,15 @@ public class MainActivity extends AppCompatActivity {
         txtAge = (EditText) findViewById(R.id.txtAge);
         lblIMG = (TextView) findViewById(R.id.lblIMG);
         rdFemme = (RadioButton) findViewById(R.id.rdFemme);
+        rdHomme = (RadioButton) findViewById(R.id.rdHomme);
         imgSmiley = (ImageView) findViewById(R.id.imgSmiley);
         btnCalc = (Button) findViewById(R.id.btnCalc);
 
-        controle = Controle.getInstance();
+        controle = Controle.getInstance(this);
 
         ecouteCalcul();
+
+        recupProfil();
     }
 
     /**
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
     private void afficheResult(int poids, int taille, int age, int sexe){
         String message;
         float img;
-        controle.creerProfil(poids, taille, age, sexe);
+        controle.creerProfil(poids, taille, age, sexe, this);
         img = controle.getImg();
         message = controle.getMessage();
 
@@ -115,5 +117,26 @@ public class MainActivity extends AppCompatActivity {
             lblIMG.setTextColor(Color.RED);
         }
         lblIMG.setText(String.format("%.01f", img)+ message);
+    }
+
+    /**
+     * Methode qui récupére les informations de la classe Profil contenu dans la serialisation
+     */
+    private void recupProfil(){
+        if(controle.getTaille() != null && controle.getAge() != null && controle.getPoids() != null && controle.getSexe() != null){
+
+            Integer.parseInt(txtPoids.getText().toString());
+            txtTaille.setText(Integer.parseInt(controle.getTaille().toString()));
+            txtAge.setText(Integer.parseInt(controle.getAge().toString()));
+            txtPoids.setText((Integer.parseInt(controle.getPoids().toString())));
+            if(controle.getSexe() == 0){
+
+                rdFemme.setChecked(true);
+            }
+            else if(controle.getSexe() == 1){
+                rdHomme.setChecked(true);
+            }
+            btnCalc.performClick();
+        }
     }
 }

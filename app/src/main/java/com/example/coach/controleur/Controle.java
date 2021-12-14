@@ -1,10 +1,14 @@
 package com.example.coach.controleur;
 
+import android.content.Context;
+
 import com.example.coach.modele.Profil;
+import com.example.coach.outils.Serializer;
 
 public final class Controle {
     private static Controle instance = null;
     private static Profil profil;
+    private static String nomFic = "saveProfil";
 
     /**
      * constructeur privé
@@ -17,13 +21,16 @@ public final class Controle {
      * Classe singleton qui récupére l'instance unique de la classe Controle ou la créée
      * @return instance
      */
-    public static final Controle getInstance(){
+    public static final Controle getInstance(Context activity){
         if(instance == null) {
             Controle.instance = new Controle();
+            recupSerialize(activity);
+
         }
         return Controle.instance;
     }
 
+    
     /**
      * Methode qui créé une nouvelle instance de la classe Profil selon les valeurs de poids, de taille, d'age et de sexe fournies
      * @param poids
@@ -31,8 +38,9 @@ public final class Controle {
      * @param age
      * @param sexe 0 femme, 1 homme
      */
-    public void creerProfil(int poids, int taille, int age, int sexe){
+    public void creerProfil(int poids, int taille, int age, int sexe, Context activity){
         profil = new Profil(poids, taille, age, sexe);
+        Serializer.serialize(nomFic, profil, activity);
     }
 
     /**
@@ -49,5 +57,57 @@ public final class Controle {
      */
     public String getMessage(){
         return profil.getMessage();
+    }
+
+    /**
+     * Methode qui verifie que l'objet Profil n'est pas null et renvoi la valeur de taille
+     * @return Integer taille
+     */
+    public Integer getTaille(){
+        if(!(profil == null)){
+            return profil.getTaille();
+        }
+        return null;
+    }
+
+    /**
+     * Methode qui verifie que l'objet Profil n'est pas null et renvoi la valeur de poids
+     * @return Integer poids
+     */
+    public Integer getPoids(){
+        if(!(profil == null)){
+            return profil.getPoids();
+        }
+        return null;
+    }
+
+    /**
+     * Methode qui verifie que l'objet Profil n'est pas null et renvoi la valeur de age
+     * @return Integer age
+     */
+    public Integer getAge(){
+        if(!(profil == null)){
+            return profil.getAge();
+        }
+        return null;
+    }
+
+    /**
+     * Methode qui verifie que l'objet Profil n'est pas null et renvoi la valeur de sexe
+     * @return Integer sexe
+     */
+    public Integer getSexe(){
+        if(!(profil==null)){
+            return profil.getSexe();
+        }
+        return null;
+    }
+
+    /**
+     * Methode qui valorise l'objet profil avec le contenu récupéré de la sérialisation
+     * @param activity
+     */
+    private static void recupSerialize(Context activity){
+        profil =  (Profil) Serializer.deSerialize(nomFic, activity);
     }
 }
