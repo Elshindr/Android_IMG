@@ -50,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
         controle = Controle.getInstance(this);
 
         ecouteCalcul();
-
-        recupProfil();
+        //recupProfil();
     }
 
     /**
