@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Controle controle;
 
+    /**
+     * Creation de l'interface graphique
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +40,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Methode de récupération des composants graphiques et d'initialisation des propriétés et appelle l'unique instance du controleur
+     * Methode de récupération des composants graphiques et
+     * d'initialisation des propriétés et
+     * appelle l'unique instance du controleur
      */
     private void init(){
-        txtPoids = (EditText) findViewById(R.id.txtPoids);
-        txtTaille = (EditText) findViewById(R.id.txtTaille);
+        txtPoids = ((EditText) findViewById(R.id.txtPoids));
+        txtTaille = ((EditText) findViewById(R.id.txtTaille));
         txtAge = (EditText) findViewById(R.id.txtAge);
         lblIMG = (TextView) findViewById(R.id.lblIMG);
         rdFemme = (RadioButton) findViewById(R.id.rdFemme);
@@ -98,7 +105,9 @@ public class MainActivity extends AppCompatActivity {
     private void afficheResult(int poids, int taille, int age, int sexe){
         String message;
         float img;
-        controle.creerProfil(poids, taille, age, sexe, this);
+
+        controle.creerProfil(poids, taille, age, sexe);
+
         img = controle.getImg();
         message = controle.getMessage();
 
@@ -121,13 +130,16 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Methode qui récupére les informations de la classe Profil contenu dans la serialisation
      */
-    private void recupProfil(){
+    public void recupProfil(){
         if(controle.getTaille() != null && controle.getAge() != null && controle.getPoids() != null && controle.getSexe() != null){
 
-            Integer.parseInt(txtPoids.getText().toString());
-            txtTaille.setText(Integer.parseInt(controle.getTaille().toString()));
-            txtAge.setText(Integer.parseInt(controle.getAge().toString()));
-            txtPoids.setText((Integer.parseInt(controle.getPoids().toString())));
+            //Integer.parseInt(txtPoids.getText().toString());
+            Log.d("merde", "on est dans recupPrfil" + controle.getTaille().toString() );
+            txtTaille.setText(controle.getTaille().toString());
+            Log.d("taille", "apres taille");
+            txtAge.setText(controle.getAge().toString());
+            Log.d("age", "apres age");
+            txtPoids.setText(controle.getPoids().toString());
             if(controle.getSexe() == 0){
 
                 rdFemme.setChecked(true);

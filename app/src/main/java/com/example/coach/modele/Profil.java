@@ -1,7 +1,13 @@
 package com.example.coach.modele;
 
+import com.example.coach.outils.MesOutils;
+
+import org.json.JSONArray;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Profil implements Serializable {
 
@@ -19,8 +25,10 @@ public class Profil implements Serializable {
     private String message;
     private Date dateMesure;
 
+
     /**
      * Constructeur de la classe Profil
+     * @param dateMesure
      * @param poids
      * @param taille
      * @param age
@@ -88,5 +96,20 @@ public class Profil implements Serializable {
                 message = "Trop élevé";
             }
         }
+    }
+
+    /**
+     * convertit les informations du profil au format JSON
+     * @return un JSONArray contenant les informations du profil
+     */
+    public JSONArray convertToJSONArray(){
+        List uneliste = new ArrayList();
+        uneliste.add(MesOutils.convertDateToString(dateMesure));
+        uneliste.add(poids);
+        uneliste.add(taille);
+        uneliste.add(age);
+        uneliste.add(sexe);
+
+        return new JSONArray(uneliste);
     }
 }

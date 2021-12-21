@@ -19,10 +19,18 @@ public class AccesLocal {
     private MySQLiteOpenHelper accesBD;
     private SQLiteDatabase bd;
 
+    /**
+     * Constructeur : valorise l'accès à la BDD
+     * @param activity
+     */
     public AccesLocal(Context activity){
        accesBD = new MySQLiteOpenHelper(activity, nomBase, versionBase);
     }
 
+    /**
+     * ajout d'un profil dans la BDD
+     * @param profil
+     */
     public void ajout(Profil profil){
 /*        this.bd = accesBD.getWritableDatabase();
         String req = "insert into profil (datemesure, poids, taille, age, sexe) values ";
@@ -44,24 +52,24 @@ public class AccesLocal {
         bd.close();
     }
 
+    /**
+     * retourne le dernier profil enregistré dans la BDD
+     * @return dernier profil
+     */
     public Profil recupDernier(){
-        Profil  profil = null;
-        String req = "select * from profil";
-
+        Profil profil = null;
         bd = accesBD.getReadableDatabase();
-
+        String req = "select * from profil";
         Cursor curseur = bd.rawQuery(req, null);
         curseur.moveToLast();
         if(!curseur.isAfterLast()){
             Date dateMesure = MesOutils.convertStringToDate(curseur.getString(0));
-            Log.d("date", "***************** dateMesure = "+dateMesure);
-
+            Log.d("date", "***************** dateMesure = " + dateMesure);
             Integer poids = curseur.getInt(1);
             Integer taille = curseur.getInt(2);
             Integer age = curseur.getInt(3);
             Integer sexe = curseur.getInt(4);
-
-            profil = new Profil(dateMesure, taille, poids, age, sexe);
+            profil = new Profil(dateMesure, poids, taille, age, sexe);
         }
         curseur.close();
         return profil;

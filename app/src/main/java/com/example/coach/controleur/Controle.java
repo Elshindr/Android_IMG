@@ -2,9 +2,13 @@ package com.example.coach.controleur;
 
 import android.content.Context;
 
+import com.example.coach.modele.AccesDistant;
 import com.example.coach.modele.AccesLocal;
 import com.example.coach.modele.Profil;
 import com.example.coach.outils.Serializer;
+import com.example.coach.vue.MainActivity;
+
+import org.json.JSONArray;
 
 import java.util.Date;
 
@@ -13,6 +17,8 @@ public final class Controle {
     private static Profil profil;
     private static String nomFic = "saveProfil";
     private static AccesLocal accesLocal;
+    private static AccesDistant accesDistant;
+    private static Context activity;
 
     /**
      * constructeur privé
@@ -28,10 +34,18 @@ public final class Controle {
     public static final Controle getInstance(Context activity){
         if(Controle.instance == null) {
             Controle.instance = new Controle();
+            if(activity != null){
+                Controle.activity = activity;
+            }
             // Appel pour serialisation
             // recupSerialize(activity);
-            accesLocal= new AccesLocal(activity);
-            profil = accesLocal.recupDernier();
+
+            //Appel pour acces local
+            //accesLocal = new AccesLocal(activity);
+            //profil = accesLocal.recupDernier();
+
+            accesDistant = new AccesDistant();
+            accesDistant.envoi("dernier", new JSONArray());
         }
         return Controle.instance;
     }
@@ -44,12 +58,13 @@ public final class Controle {
      * @param age
      * @param sexe 0 femme, 1 homme
      */
-    public void creerProfil(int poids, int taille, int age, int sexe, Context activity){
+    public void creerProfil(int poids, int taille, int age, int sexe){
         profil  = new Profil(new Date(), poids, taille, age, sexe);
         // Appel pour serialisation
         // Serializer.serialize(nomFic, profil, activity);
 
-        accesLocal.ajout(profil);
+        //accesLocal.ajout(profil);
+        accesDistant.envoi("enreg", profil.convertToJSONArray());
     }
 
     /**
@@ -118,5 +133,14 @@ public final class Controle {
      */
     private static void recupSerialize(Context activity){
         profil =  (Profil) Serializer.deSerialize(nomFic, activity);
+    }
+
+    public void setProfil(Profil profil){
+        Controle.profil = profil;
+
+        // possible mais ne marche pas car contexte est de type Context qui est une classe mère de
+        //MainActivity. Donc les méthodes de MainActivity ne sont pas visibles à partir de la classe Context
+        //context.recupProfil()
+        ((MainActivity)activity).recupProfil();
     }
 }
