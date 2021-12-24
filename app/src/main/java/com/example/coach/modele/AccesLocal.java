@@ -32,15 +32,6 @@ public class AccesLocal {
      * @param profil
      */
     public void ajout(Profil profil){
-/*        this.bd = accesBD.getWritableDatabase();
-        String req = "insert into profil (datemesure, poids, taille, age, sexe) values ";
-        req += "(\"" + profil.getDateMesure() + "\","
-                + profil.getPoids() + ","
-                + profil.getTaille() + ","
-                + profil.getAge() + ","
-                + profil.getSexe() + ")";
-        bd.execSQL(req);
-*/
         bd = accesBD.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("dateMesure", profil.getDateMesure().toString());

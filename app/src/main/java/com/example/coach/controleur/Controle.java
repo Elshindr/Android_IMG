@@ -6,22 +6,24 @@ import com.example.coach.modele.AccesDistant;
 import com.example.coach.modele.AccesLocal;
 import com.example.coach.modele.Profil;
 import com.example.coach.outils.Serializer;
-import com.example.coach.vue.MainActivity;
+import com.example.coach.vue.CalculActivity;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public final class Controle {
     private static Controle instance = null;
     private static Profil profil;
+    private ArrayList<Profil> lesProfils;
     private static String nomFic = "saveProfil";
     private static AccesLocal accesLocal;
     private static AccesDistant accesDistant;
     private static Context activity;
 
     /**
-     * constructeur privé
+     * constructeur privé de Controle
      */
     private Controle() {
         super();
@@ -45,7 +47,7 @@ public final class Controle {
             //profil = accesLocal.recupDernier();
 
             accesDistant = new AccesDistant();
-            accesDistant.envoi("dernier", new JSONArray());
+            accesDistant.envoi("tous", new JSONArray());
         }
         return Controle.instance;
     }
@@ -64,6 +66,7 @@ public final class Controle {
         // Serializer.serialize(nomFic, profil, activity);
 
         //accesLocal.ajout(profil);
+        lesProfils.add(profil);
         accesDistant.envoi("enreg", profil.convertToJSONArray());
     }
 
@@ -72,7 +75,11 @@ public final class Controle {
      * @return img
      */
     public float getImg(){
-        return profil.getImg();
+        if(lesProfils.size() == 0){
+            return 0;
+        }else {
+            return lesProfils.get(lesProfils.size() - 1).getImg();
+        }
     }
 
     /**
@@ -80,7 +87,11 @@ public final class Controle {
      * @return message
      */
     public String getMessage(){
-        return profil.getMessage();
+        if(lesProfils.size() == 0){
+            return "";
+        }else {
+            return lesProfils.get(lesProfils.size() - 1).getMessage();
+        }
     }
 
     /**
@@ -128,6 +139,22 @@ public final class Controle {
     }
 
     /**
+     * Getter sur lesprofils
+     * @return lesprofils
+     */
+    public ArrayList<Profil> getLesProfils() {
+        return lesProfils;
+    }
+
+    /**
+     * Setter sur lesProfils
+     * @param lesProfils
+     */
+    public void setLesProfils(ArrayList<Profil> lesProfils) {
+        this.lesProfils = lesProfils;
+    }
+
+    /**
      * Methode qui valorise l'objet profil avec le contenu récupéré de la sérialisation
      * @param activity
      */
@@ -135,12 +162,21 @@ public final class Controle {
         profil =  (Profil) Serializer.deSerialize(nomFic, activity);
     }
 
+    /**
+     * Setter sur profil
+     * @param profil
+     */
     public void setProfil(Profil profil){
         Controle.profil = profil;
 
         // possible mais ne marche pas car contexte est de type Context qui est une classe mère de
-        //MainActivity. Donc les méthodes de MainActivity ne sont pas visibles à partir de la classe Context
+        //CalculActivity. Donc les méthodes de CalculActivity ne sont pas visibles à partir de la classe Context
         //context.recupProfil()
-        ((MainActivity)activity).recupProfil();
+        //((CalculActivity)activity).recupProfil();
+    }
+
+    public void delProfil(Profil profil){
+        accesDistant.envoi("suppr", profil.convertToJSONArray());
+        lesProfils.remove(profil);
     }
 }
