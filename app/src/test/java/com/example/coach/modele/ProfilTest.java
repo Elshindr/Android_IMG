@@ -10,7 +10,7 @@ public class ProfilTest extends TestCase {
     // résultat de l’img correspondant
     private float img = (float)1600.0966;
     // message correspondant
-    private String message = "Trop élevé" ;
+    private String message = "trop élevé" ;
 
     public void testGetImg() {
         assertEquals(img, profil.getImg(), (float)0.1);
