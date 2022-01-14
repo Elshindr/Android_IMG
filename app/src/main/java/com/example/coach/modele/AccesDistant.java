@@ -3,8 +3,7 @@ package com.example.coach.modele;
 import android.util.Log;
 
 import com.example.coach.controleur.Controle;
-import com.example.coach.outils.AccesHTTP;
-import com.example.coach.outils.AccesWS;
+import com.example.coach.outils.AccesREST;
 import com.example.coach.outils.AsyncResponse;
 import com.example.coach.outils.MesOutils;
 
@@ -17,8 +16,8 @@ import java.util.Date;
 
 public class AccesDistant implements AsyncResponse {
 
-    private static final String NAMESPACE = "http://192.168.1.30/coach/";
-    private static final String URL = NAMESPACE + "server.php";
+    //    private static final String SERVERADDR = "http://192.168.0.10/rest_coach/api/coach.php";
+    private static final String SERVERADDR = "http://192.168.1.30/coach/api/";
     private Controle controle;
 
     /**
@@ -28,52 +27,61 @@ public class AccesDistant implements AsyncResponse {
         controle = Controle.getInstance(null);
     }
 
-
+    /**
+     * retour du serveur distant
+     * @param output
+     */
     @Override
     public void processFinish(String output) {
         Log.d("serveur", "************" + output);
-        String[] message = output.split("%");
-        if(message.length > 1){
-            if (message[0].equals("enreg")){
-                Log.d("enreg", "*********** "+message[1]);
-            }else if (message[0].equals(("tous"))){
-                try {
-                    JSONArray infos = new JSONArray(message[1]);
-                    ArrayList<Profil> lesProfils = new ArrayList<Profil>();
-                    for(int k=0;k<infos.length();k++) {
-                        JSONObject info = new JSONObject(infos.get(k).toString());
-                        Date dateMesure = MesOutils.convertStringToDate(info.getString("datemesure"),
-                                "yyyy-MM-dd hh:mm:ss");
-                        Integer poids = info.getInt("poids");
-                        Integer taille = info.getInt("taille");
-                        Integer age = info.getInt("age");
-                        Integer sexe = info.getInt("sexe");
-                        Profil profil = new Profil(dateMesure, poids, taille, age, sexe);
-                        lesProfils.add(profil);
-                    }
-                    controle.setLesProfils(lesProfils);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        try {
+            JSONObject retour = new JSONObject(output);
+            String message = retour.getString("message");
+            if (!message.equals("OK")) {
+                Log.d("erreur", "********* problème retour api rest :" + message);
+            } else {
+                JSONArray infos = retour.getJSONArray("result");
+                ArrayList<Profil> lesProfils = new ArrayList<Profil>();
+                for (int k = 0; k < infos.length(); k++) {
+                    JSONObject info = new JSONObject(infos.get(k).toString());
+                    Date dateMesure = MesOutils.convertStringToDate(info.getString("datemesure"),
+                            "yyyy-MM-dd hh:mm:ss");
+                    Integer poids = info.getInt("poids");
+                    Integer taille = info.getInt("taille");
+                    Integer age = info.getInt("age");
+                    Integer sexe = info.getInt("sexe");
+                    Profil profil = new Profil(dateMesure, poids, taille, age, sexe);
+                    lesProfils.add(profil);
                 }
-
-            }else if (message[0].equals("Erreur !")){
-                Log.d("erreur", "*********** "+message[1]);
+                controle.setLesProfils(lesProfils);
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
     /**
      * envoi de données vers le serveur distant
-     * @param methode
+     * @param operation
      * @param lesDonneesJSON
      */
-    public void envoi(String methode, JSONArray lesDonneesJSON){
-        AccesWS accesDonnees = new AccesWS(URL, NAMESPACE, methode);
+    public void envoi(String operation, JSONObject lesDonneesJSON){
+        AccesREST accesDonnees = new AccesREST();
         accesDonnees.delegate = this;
-        if(lesDonneesJSON != null) {
-            accesDonnees.addParam("lesdonnees", lesDonneesJSON.toString());
+        String requesMethod = null;
+        switch (operation){
+            case "tous" : requesMethod="GET"; break;
+            case "enreg" : requesMethod="POST"; break;
+            case "suppr" : requesMethod="DELETE"; break;
         }
-        accesDonnees.execute();
+        if (requesMethod != null) {
+            accesDonnees.setRequestMethod(requesMethod);
+            accesDonnees.addParam("profil");
+            if (lesDonneesJSON != null) {
+                accesDonnees.addParam(lesDonneesJSON.toString());
+            }
+            accesDonnees.execute(SERVERADDR);
+        }
     }
 
 }

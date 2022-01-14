@@ -5,8 +5,6 @@ import android.content.Context;
 import com.example.coach.modele.AccesDistant;
 import com.example.coach.modele.Profil;
 
-import org.json.JSONArray;
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -55,7 +53,7 @@ public final class Controle {
     public void creerProfil(Integer poids, Integer taille, Integer age, Integer sexe){
         Profil unProfil = new Profil(new Date(), poids, taille, age, sexe);
         lesProfils.add(unProfil);
-        accesDistant.envoi("enreg", unProfil.convertToJSONArray());
+        accesDistant.envoi("enreg", unProfil.convertToJSONObject());
     }
 
     /**
@@ -63,7 +61,7 @@ public final class Controle {
      * @param profil
      */
     public void delProfil(Profil profil){
-        accesDistant.envoi("suppr", profil.convertToJSONArray());
+        accesDistant.envoi("suppr", profil.convertToJSONObject());
         lesProfils.remove(profil);
     }
 

@@ -2,12 +2,11 @@ package com.example.coach.modele;
 
 import com.example.coach.outils.MesOutils;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Hashtable;
 
 public class Profil implements Serializable, Comparable {
 
@@ -17,24 +16,24 @@ public class Profil implements Serializable, Comparable {
     private static final Integer minHomme = 10; // maigre si en dessous
     private static final Integer maxHomme = 25; // gros si au dessus
 
-    private int poids;
-    private int taille;
-    private int age;
-    private int sexe;
+    private Date dateMesure;
+    private Integer poids;
+    private Integer taille;
+    private Integer age;
+    private Integer sexe;
     private float img;
     private String message;
-    private Date dateMesure;
-
 
     /**
-     * Constructeur de la classe Profil
+     * constructeur : valorise poids, taille, age, sexe
+     * et appelle les méthodes pour valoriser img et message
      * @param dateMesure
      * @param poids
-     * @param taille
+     * @param taille en cm
      * @param age
-     * @param sexe
+     * @param sexe 1 pour homme, 0 pour femme
      */
-    public Profil(Date dateMesure, int poids, int taille, int age, int sexe) {
+    public Profil(Date dateMesure, Integer poids, Integer taille, Integer age, Integer sexe) {
         this.dateMesure = dateMesure;
         this.poids = poids;
         this.taille = taille;
@@ -45,39 +44,47 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * Getter sur poids
+     * getter sur dateMesure
+     * @return dateMesure
+     */
+    public Date getDateMesure() {
+        return dateMesure;
+    }
+
+    /**
+     * getter sur poids
      * @return poids
      */
-    public int getPoids() {
+    public Integer getPoids() {
         return poids;
     }
 
     /**
-     * Getter sur taille
-     * @return taille
+     * getter sur taille
+     * @return taille en cm
      */
-    public int getTaille() {
+    public Integer getTaille() {
         return taille;
     }
 
     /**
-     * Getter sur age
+     * getter sur age
      * @return age
      */
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
     /**
      * getter sur sexe
-     * @return sexe
+     * @return 1 pour homme, 0 pour femme
      */
-    public int getSexe() {
+    public Integer getSexe() {
         return sexe;
     }
 
     /**
-     * Getter sur IMG
+     * getter sur img
      * @return img
      */
     public float getImg() {
@@ -85,60 +92,53 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * Getter sur message
-     * @return message
+     * getter sur message
+     * @return "normal", "trop faible", "trop élevé"
      */
     public String getMessage() {
         return message;
     }
 
     /**
-     * Getter sur datemesure
-     * @return date mesure
-     */
-    public Date getDateMesure() {
-        return dateMesure;
-    }
-    /**
-     * Methode qui calcul l'IMG puis valorise la propriété img
+     * calcul de l'img
      */
     private void calculIMG(){
-        float tailleCM = ((float) taille) / 100;
-        img = (float)((1.2 * poids / (Math.pow(tailleCM, 2))) + (0.23 * age) - (10.83 * sexe) - 5.4);
+        float taillecm = ((float)taille)/100;
+        this.img = (float)((1.2 * poids/(taillecm*taillecm)) + (0.23 * age) - (10.83 * sexe) - 5.4);
     }
 
     /**
-     * Methode qui valorise la prorpriété message selon l'IMG calculé
+     * création du message suivant la valeur de l'img et des constantes
      */
     private void resultIMG(){
-        message = "Normal";
+        message = "normal";
         Integer min = minFemme, max = maxFemme;
         if(sexe == 1){
             min = minHomme;
             max = maxHomme;
         }
         if(img<min){
-            message = "Trop faible";
+            message = "trop faible";
         }else{
             if(img>max){
-                message = "Trop élevé";
+                message = "trop élevé";
             }
         }
     }
 
     /**
      * convertit les informations du profil au format JSON
-     * @return un JSONArray contenant les informations du profil
+     * @return un JSONObject contenant les informations du profil
      */
-    public JSONArray convertToJSONArray(){
-        List uneliste = new ArrayList();
-        uneliste.add(MesOutils.convertDateToString(dateMesure));
-        uneliste.add(poids);
-        uneliste.add(taille);
-        uneliste.add(age);
-        uneliste.add(sexe);
-
-        return new JSONArray(uneliste);
+    public JSONObject convertToJSONObject(){
+        // Hashtable<String, Object> liste = new Hashtable<String, Object>();
+        Hashtable<String, Object> liste = new Hashtable<String, Object>();
+        liste.put("datemesure", MesOutils.convertDateToString(dateMesure));
+        liste.put("poids", poids);
+        liste.put("taille", taille);
+        liste.put("age", age);
+        liste.put("sexe", sexe);
+        return new JSONObject(liste);
     }
 
     /**
