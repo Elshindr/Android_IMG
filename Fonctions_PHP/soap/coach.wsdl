@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!-- partie 1 : Definitions -->
+<definitions 	name="coach" 
+		targetNamespace="urn:coach" 
+		xmlns:typens="urn:coach" 
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+		xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+		xmlns="http://schemas.xmlsoap.org/wsdl/">
+		
+	<!-- partie 2 : Types-->
+<types>
+    	<xsd:schema 	xmlns="http://www.w3.org/2001/XMLSchema" 
+			targetNamespace="urn:coach">
+ 	</xsd:schema>
+ </types> 
+	
+	
+	<!-- partie 3 : Message -->
+	<message name="tousRequest">
+	</message>
+	<message name="tousResponse">
+		<part name="return" type="xsd:string"/>
+	</message>
+	<message name="enregRequest">
+		<part name="lesdonnees" type="xsd:string"/>
+	</message>
+	<message name="enregResponse">
+		<part name="return" type="xsd:string"/>
+	</message>
+	<message name="supprRequest">
+		<part name="lesdonnees" type="xsd:string"/>
+	</message>
+	<message name="supprResponse">
+		<part name="return" type="xsd:string"/>
+	</message>
+	
+	<!-- partie 4 : Port Type -->
+	<portType name="coachPort">
+		<!-- partie 5 : Operation -->
+		<operation name="tous">
+			<input message="typens:tousRequest"/>
+			<output message="typens:tousResponse"/>
+		</operation>
+		<operation name="enreg">
+			<input message="typens:enregRequest"/>
+			<output message="typens:enregResponse"/>
+		</operation>
+		<operation name="suppr">
+			<input message="typens:supprRequest"/>
+			<output message="typens:supprResponse"/>
+		</operation>
+	</portType>
+
+	<!-- partie 6 : Binding -->
+	<binding name="coachBinding" type="typens:coachPort">
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="tous">
+			<soap:operation soapAction="coachAction"/>
+			<input name="tousRequest">
+				<soap:body 	use="encoded" 	
+						namespace="urn:coach" 	
+						encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output name="tousResponse">
+				<soap:body 	use="encoded" 	
+						namespace="urn:coach" 
+						encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="enreg">
+			<soap:operation soapAction="coachAction"/>
+			<input name="enregRequest">
+				<soap:body 	use="encoded" 	
+						namespace="urn:coach" 	
+						encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output name="enregResponse">
+				<soap:body 	use="encoded" 	
+						namespace="urn:coach" 
+						encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="suppr">
+			<soap:operation soapAction="coachAction"/>
+			<input name="supprRequest">
+				<soap:body 	use="encoded" 	
+						namespace="urn:coach" 	
+						encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output name="supprResponse">
+				<soap:body 	use="encoded" 	
+						namespace="urn:coach" 
+						encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+	</binding>
+
+	<!-- partie 7 : Service -->
+	<service name="coachService">
+		<documentation>Retourne une phrase simple </documentation>
+		<!-- partie 8 : Port -->
+		<port name="coachPort" binding="typens:coachBinding">
+			<soap:address location="http://localhost/coach/server.php"/> <!-- modifier ce chemin vers server.php -->
+		</port>
+	</service>
+</definitions>
