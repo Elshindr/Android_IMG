@@ -14,7 +14,7 @@ public class Profil implements Serializable, Comparable {
     private static final Integer minFemme = 15; // maigre si en dessous
     private static final Integer maxFemme = 30; // gros si au dessus
     private static final Integer minHomme = 10; // maigre si en dessous
-    private static final Integer maxHomme = 25; // gros si au dessus
+    private static final Integer maxHomme = 26; // gros si au dessus
 
     private Date dateMesure;
     private Integer poids;
