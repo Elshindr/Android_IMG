@@ -1,23 +1,17 @@
 plugins {
     id 'com.android.application'
-    id "org.sonarqube" version "3.3"
 
 }
-sonarqube {
-        properties {
-            property "sonar.projectKey", "androidtest"
-        }
 
-    }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 29
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.coach"
         minSdk 16
-        targetSdk 31
+        targetSdk 29
         versionCode 1
         versionName "1.0"
 
