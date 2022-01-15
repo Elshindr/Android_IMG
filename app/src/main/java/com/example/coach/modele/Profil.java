@@ -11,7 +11,7 @@ import java.util.Hashtable;
 public class Profil implements Serializable, Comparable {
 
     // constantes
-    private static final Integer minFemme = 15; // maigre si en dessous
+    private static final Integer MIN_FEMME = 15; // maigre si en dessous
     private static final Integer maxFemme = 30; // gros si au dessus
     private static final Integer minHomme = 10; // maigre si en dessous
     private static final Integer maxHomme = 26; // gros si au dessus
@@ -112,7 +112,7 @@ public class Profil implements Serializable, Comparable {
      */
     private void resultIMG(){
         message = "normal";
-        Integer min = minFemme, max = maxFemme;
+        Integer min = MIN_FEMME, max = maxFemme;
         if(sexe == 1){
             min = minHomme;
             max = maxHomme;
@@ -131,7 +131,6 @@ public class Profil implements Serializable, Comparable {
      * @return un JSONObject contenant les informations du profil
      */
     public JSONObject convertToJSONObject(){
-        // Hashtable<String, Object> liste = new Hashtable<String, Object>();
         Hashtable<String, Object> liste = new Hashtable<String, Object>();
         liste.put("datemesure", MesOutils.convertDateToString(dateMesure));
         liste.put("poids", poids);
