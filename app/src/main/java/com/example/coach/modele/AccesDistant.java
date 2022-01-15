@@ -16,7 +16,6 @@ import java.util.Date;
 
 public class AccesDistant implements AsyncResponse {
 
-    //    private static final String SERVERADDR = "http://192.168.0.10/rest_coach/api/coach.php";
     private static final String SERVERADDR = "http://192.168.1.30/coach/api/";
     private Controle controle;
 
@@ -73,6 +72,7 @@ public class AccesDistant implements AsyncResponse {
             case "tous" : requesMethod="GET"; break;
             case "enreg" : requesMethod="POST"; break;
             case "suppr" : requesMethod="DELETE"; break;
+            default: break;
         }
         if (requesMethod != null) {
             accesDonnees.setRequestMethod(requesMethod);
