@@ -4,13 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.ContactsContract;
 import android.util.Log;
-
 import com.example.coach.outils.MesOutils;
 import com.example.coach.outils.MySQLiteOpenHelper;
-
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AccesLocal {
