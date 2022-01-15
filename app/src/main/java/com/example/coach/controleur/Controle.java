@@ -15,7 +15,7 @@ public final class Controle {
 
     private static Controle instance = null ;
     private static Profil profil;
-    private static String nomFic = "saveprofil";
+    //private static String nomFic = "saveprofil";
     private static AccesDistant accesDistant;
     private static Context context;
     private ArrayList<Profil> lesProfils;
