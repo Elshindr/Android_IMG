@@ -40,7 +40,7 @@ public class AccesDistant implements AsyncResponse {
                 Log.d("erreur", "********* problème retour api rest :" + message);
             } else {
                 JSONArray infos = retour.getJSONArray("result");
-                ArrayList<Profil> lesProfils = new ArrayList<Profil>();
+                ArrayList<Profil> lesProfils = new ArrayList<>();
                 for (int k = 0; k < infos.length(); k++) {
                     JSONObject info = new JSONObject(infos.get(k).toString());
                     Date dateMesure = MesOutils.convertStringToDate(info.getString("datemesure"),
