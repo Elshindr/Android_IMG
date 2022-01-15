@@ -8,6 +8,12 @@ android {
     compileSdkVersion 29
     buildToolsVersion "30.0.3"
 
+    lintOptions {
+            abortOnError false
+    }
+
+
+
     defaultConfig {
         applicationId "com.example.coach"
         minSdk 16
