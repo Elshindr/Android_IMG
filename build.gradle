@@ -18,7 +18,7 @@ plugins {
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "coach git"
+        property "sonar.projectKey", "test"
         property "sonar.login", "9b1ff4ae052204b04eff2b551b6dbd8b93a5d98a"
     }
 }
