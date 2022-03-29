@@ -69,8 +69,9 @@ public class AccesDistant implements AsyncResponse {
         accesDonnees.delegate = this;
         String requesMethod = null;
         switch (operation){
-            case "tous" : requesMethod="GET"; break;
+            case "tous"  : requesMethod="GET"; break;
             case "enreg" : requesMethod="POST"; break;
+            case "modif" : requesMethod="PUT"; break;
             case "suppr" : requesMethod="DELETE"; break;
             default: break;
         }

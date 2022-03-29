@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.coach.*;
 import com.example.coach.controleur.Controle;
+import com.example.coach.modele.Profil;
 import com.example.coach.outils.MesOutils;
 
 public class CalculActivity extends AppCompatActivity {
@@ -29,6 +31,9 @@ public class CalculActivity extends AppCompatActivity {
     private ImageView imgSmiley;
     private Button btnCalc;
     private Controle controle;
+
+    private Profil profil;
+    private Boolean modif = false;
 
     /**
      * Création de l'interfac graphique
@@ -56,6 +61,7 @@ public class CalculActivity extends AppCompatActivity {
         imgSmiley = (ImageView) findViewById(R.id.imgSmiley);
         btnCalc = (Button) findViewById(R.id.btnCalc);
         controle = Controle.getInstance(this);
+
         ecouteCalcul();
         ecouteRetourMenu();
         recupProfil();
@@ -69,6 +75,8 @@ public class CalculActivity extends AppCompatActivity {
         btnRetourMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                controle.setProfil(null);
+                modif = false;
                 Intent intent = new Intent(CalculActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
@@ -111,7 +119,13 @@ public class CalculActivity extends AppCompatActivity {
      * @param sexe
      */
     private void afficheResult(Integer poids, Integer taille, Integer age, Integer sexe){
-        controle.creerProfil(poids, taille, age, sexe);
+        if(modif){
+            controle.modifierProfil(poids, taille, age, sexe);
+        }
+        else if(!modif){
+            controle.creerProfil(poids, taille, age, sexe);
+        }
+
         String message = controle.getMessage();
         float img = controle.getImg();
         if (message.equals("Normal")){
@@ -125,12 +139,14 @@ public class CalculActivity extends AppCompatActivity {
             lblIMG.setTextColor(Color.RED);
         }
         lblIMG.setText(MesOutils.format2Decimal(img)+" : IMG "+message);
+        modif = false;
     }
 
     /**
-     * récupère les informations du profil (si pas nul) et les affiche
+     * récupère les informations du profil  et les affiche
      */
     public void recupProfil(){
+
         if(controle.getTaille() != null){
             txtTaille.setText(controle.getTaille().toString());
             txtPoids.setText(controle.getPoids().toString());
@@ -141,7 +157,41 @@ public class CalculActivity extends AppCompatActivity {
                 rdFemme.setChecked(true);
             }
         }
-        controle.setProfil(null);
+        txtTaille.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                modif = true;
+                txtTaille.getText();
+            }
+        }));
+        txtPoids.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtPoids.getText();
+                modif = true;
+            }
+        }));
+        txtAge.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtAge.getText();
+                modif = true;
+            }
+        }));
+        rdHomme.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rdHomme.setChecked(true);
+                modif = true;
+            }
+        }));
+        rdFemme.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rdFemme.setChecked(true);
+                modif = true;
+            }
+        }));
     }
 
 }

@@ -1,6 +1,8 @@
 package com.example.coach.vue;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -102,10 +104,31 @@ public class HistoListAdapter extends BaseAdapter {
         viewProperties.btnListSuppr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int indice = (int)v.getTag();
-                Controle controle = Controle.getInstance(null);
-                controle.delProfil(lesProfils.get(indice));
-                notifyDataSetChanged() ;
+                ////////////////////////
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Confirmation");
+                builder.setMessage("Etes vous sur(e)?");
+                builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing but close the dialog
+                        int indice = (int)v.getTag();
+                        Controle controle = Controle.getInstance(null);
+                        controle.delProfil(lesProfils.get(indice));
+                        notifyDataSetChanged() ;
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
+                ////////////////////
+
             }
         });
         viewProperties.txtListDate.setTag(position);
@@ -125,8 +148,12 @@ public class HistoListAdapter extends BaseAdapter {
             }
         });
 
+
+
+
         return convertView;
     }
+
 
     /**
      * Objets graphiques

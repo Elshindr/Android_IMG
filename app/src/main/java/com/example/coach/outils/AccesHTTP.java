@@ -58,9 +58,9 @@ public class AccesHTTP extends AsyncTask<String, Integer, Long> {
 		// pour éliminer certaines erreurs
 		System.setProperty("http.keepAlive", "false");
 		// objets pour gérer la connexion, la lecture et l'écriture
-        PrintWriter writer = null;
+		PrintWriter writer = null;
 		BufferedReader reader = null;
-        HttpURLConnection connexion = null;
+		HttpURLConnection connexion = null;
 
 		try {
 			// création de l'url à partir de l'adresse reçu en paramètre, dans urls[0]
@@ -73,8 +73,8 @@ public class AccesHTTP extends AsyncTask<String, Integer, Long> {
 			connexion.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 			connexion.setFixedLengthStreamingMode(parametres.getBytes().length);
 			// création de la requete d'envoi sur la connexion, avec les paramètres
-            writer = new PrintWriter(connexion.getOutputStream());
-            writer.print(parametres);
+			writer = new PrintWriter(connexion.getOutputStream());
+			writer.print(parametres);
 			// Une fois l'envoi réalisé, vide le canal d'envoi
 			writer.flush();
 			// Récupération du retour du serveur
@@ -91,7 +91,7 @@ public class AccesHTTP extends AsyncTask<String, Integer, Long> {
 				reader.close();
 			}catch(Exception e){}
 		}
-        return null;
+		return null;
 	}
 
 	/**
@@ -102,6 +102,6 @@ public class AccesHTTP extends AsyncTask<String, Integer, Long> {
 	protected void onPostExecute(Long result) {
 		// ret contient l'information récupérée
 		delegate.processFinish(this.ret.toString());
-    }
-	
+	}
+
 }

@@ -111,17 +111,17 @@ public class Profil implements Serializable, Comparable {
      * création du message suivant la valeur de l'img et des constantes
      */
     private void resultIMG(){
-        message = "normal";
+        message = "Normal";
         Integer min = MIN_FEMME, max = maxFemme;
         if(sexe == 1){
             min = minHomme;
             max = maxHomme;
         }
         if(img<min){
-            message = "trop faible";
+            message = "Trop faible";
         }else{
             if(img>max){
-                message = "trop élevé";
+                message = "Trop élevé";
             }
         }
     }

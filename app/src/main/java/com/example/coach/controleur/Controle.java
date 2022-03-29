@@ -1,6 +1,7 @@
 package com.example.coach.controleur;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.coach.modele.AccesDistant;
 import com.example.coach.modele.Profil;
@@ -54,6 +55,23 @@ public final class Controle {
         Profil unProfil = new Profil(new Date(), poids, taille, age, sexe);
         lesProfils.add(unProfil);
         accesDistant.envoi("enreg", unProfil.convertToJSONObject());
+    }
+
+    /**
+     * modification d'un profil
+     * @param poids
+     * @param taille
+     * @param age
+     * @param sexe
+     */
+    public void modifierProfil(Integer poids, Integer taille, Integer age, Integer sexe){
+        Profil updateProfil = new Profil(profil.getDateMesure(), poids, taille, age, sexe);
+
+        lesProfils.remove(profil);
+        lesProfils.add(updateProfil);
+        setProfil(updateProfil);
+
+        accesDistant.envoi("modif", updateProfil.convertToJSONObject());
     }
 
     /**
