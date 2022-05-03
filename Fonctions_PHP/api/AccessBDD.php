@@ -6,19 +6,19 @@ include_once("ConnexionPDO.php");
  */
 class AccessBDD {
 
-	/*public $login="b0d3e4efbc6f1d";
+	public $login="b0d3e4efbc6f1d";
 	public $mdp="8d1b2c5b";
 	public $bd="heroku_cd447878146fd26";
 	public $serveur="eu-cdbr-west-02.cleardb.net";
 	public $port="3306";	
-	public $conn = null;*/
+	public $conn = null;
         
-         public $login="root";
+        /* public $login="root";
 	public $mdp="";
 	public $bd="coach";
 	public $serveur="localhost";
 	public $port="3306";	
-	public $conn = null;
+	public $conn = null;*/
         
       
 

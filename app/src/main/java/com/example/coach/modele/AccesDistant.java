@@ -19,8 +19,8 @@ import java.util.Date;
  */
 public class AccesDistant implements AsyncResponse {
 
-    private static final String SERVERADDR = "http://192.168.1.30/coach/api/";
-   // private static final String SERVERADDR = "https://androidcoach.herokuapp.com/";
+    //private static final String SERVERADDR = "http://192.168.1.30/coach/api/";
+   private static final String SERVERADDR = "https://androidcoach.herokuapp.com/api/";
     private Controle controle;
 
     /**

@@ -64,7 +64,7 @@ public class CalculActivity extends AppCompatActivity {
         imgSmiley = (ImageView) findViewById(R.id.imgSmiley);
         btnCalc = (Button) findViewById(R.id.btnCalc);
         controle = Controle.getInstance(this);
-
+        modif = false;
         ecouteCalcul();
         ecouteRetourMenu();
         recupProfil();
@@ -127,7 +127,7 @@ public class CalculActivity extends AppCompatActivity {
             modif = false;
             controle.setProfil(null);
         }
-        else{
+        else if (!modif){
             controle.creerProfil(poids, taille, age, sexe);
         }
 
@@ -163,41 +163,5 @@ public class CalculActivity extends AppCompatActivity {
                 rdFemme.setChecked(true);
             }
         }
-        txtTaille.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                modif = true;
-                txtTaille.getText();
-            }
-        }));
-        txtPoids.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                txtPoids.getText();
-                modif = true;
-            }
-        }));
-        txtAge.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                txtAge.getText();
-                modif = true;
-            }
-        }));
-        rdHomme.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rdHomme.setChecked(true);
-                modif = true;
-            }
-        }));
-        rdFemme.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rdFemme.setChecked(true);
-                modif = true;
-            }
-        }));
     }
-
 }
