@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['recupdernier_0',['recupDernier',['../classcom_1_1example_1_1coach_1_1modele_1_1_acces_local.html#a735d27c028c2f73189c133436bd9ac9e',1,'com::example::coach::modele::AccesLocal']]],
-  ['recupprofil_1',['recupProfil',['../classcom_1_1example_1_1coach_1_1vue_1_1_calcul_activity.html#ae1a078855453a4ad02ee3c55adb44fb2',1,'com::example::coach::vue::CalculActivity']]]
+  ['processfinish_0',['processFinish',['../classcom_1_1example_1_1coach_1_1modele_1_1_acces_distant.html#a52536cfbba8aeaf690a1efe8ba82ee6a',1,'com.example.coach.modele.AccesDistant.processFinish()'],['../interfacecom_1_1example_1_1coach_1_1outils_1_1_async_response.html#a07943172708139d0e01b6c1ac288a3c3',1,'com.example.coach.outils.AsyncResponse.processFinish()']]],
+  ['profil_1',['Profil',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil.html#af607704abbda46c6eda821d3610069e0',1,'com::example::coach::modele::Profil']]]
 ];

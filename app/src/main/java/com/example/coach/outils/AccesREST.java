@@ -9,7 +9,7 @@ import java.net.URLEncoder;
 import android.os.AsyncTask;
 
 /**
- * Classe technique de connexion distante HTTP
+ * Classe technique AccesREST de connexion distante HTTP
  */
 public class AccesREST extends AsyncTask<String, Integer, Long> {
 
@@ -20,14 +20,14 @@ public class AccesREST extends AsyncTask<String, Integer, Long> {
     private String requestMethod = "GET";
 
     /**
-     * Constructeur : ne fait rien
+     * Constructeur  de AccesREST: ne fait rien
      */
     public AccesREST() {
         super();
     }
 
     /**
-     * Ajout du paramètre
+     * Méthode d'ajout du paramètre
      * @param valeur
      */
     public void addParam(String valeur) {
@@ -45,7 +45,7 @@ public class AccesREST extends AsyncTask<String, Integer, Long> {
     }
 
     /**
-     *
+     * Setter de la propriété requestMethod
      * @param requestMethod
      */
     public void setRequestMethod(String requestMethod) {
@@ -89,7 +89,8 @@ public class AccesREST extends AsyncTask<String, Integer, Long> {
     }
 
     /**
-     * Sur le retour du serveur, envoi l'information retournée à processFinish
+     * Méthode appellée sur le retour du serveur
+     * Renvoi l'information retournée à processFinish
      * @param result
      */
     @Override

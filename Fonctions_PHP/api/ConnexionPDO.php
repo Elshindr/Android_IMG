@@ -43,7 +43,7 @@ class ConnexionPDO {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * Exécution d'une requête select retournant plusieurs lignes
 	 * @param string $requete
@@ -95,5 +95,5 @@ class ConnexionPDO {
 			return null;
 		}		
 	}
-	
-}
+
+} 

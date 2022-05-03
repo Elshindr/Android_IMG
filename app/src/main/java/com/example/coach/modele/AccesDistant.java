@@ -14,20 +14,25 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Classe AccessDistant implements la Classe AsyncResponse
+ */
 public class AccesDistant implements AsyncResponse {
 
     private static final String SERVERADDR = "http://192.168.1.30/coach/api/";
+   // private static final String SERVERADDR = "https://androidcoach.herokuapp.com/";
     private Controle controle;
 
     /**
-     * constructeur
+     * Constructeur de la Classe AccesDistant
      */
     public AccesDistant(){
         controle = Controle.getInstance(null);
     }
 
     /**
-     * retour du serveur distant
+     * Methode autogénérée
+     * Affiche le retour du serveur distant
      * @param output
      */
     @Override
@@ -60,7 +65,7 @@ public class AccesDistant implements AsyncResponse {
     }
 
     /**
-     * envoi de données vers le serveur distant
+     * Méthode d'envoi de données vers le serveur distant
      * @param operation
      * @param lesDonneesJSON
      */

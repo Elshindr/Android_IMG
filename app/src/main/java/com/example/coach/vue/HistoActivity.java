@@ -16,10 +16,18 @@ import com.example.coach.modele.Profil;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Classe HistoActivity
+ * Affichage de l'historique des calculs de profil
+ */
 public class HistoActivity extends AppCompatActivity {
 
     private Controle controle;
 
+    /**
+     * Méthode appellée à la création
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +36,7 @@ public class HistoActivity extends AppCompatActivity {
     }
 
     /**
-     * initialisations
+     * Méthode d'initialisation des composants
      */
     private void init(){
         controle = Controle.getInstance(this);
@@ -37,7 +45,7 @@ public class HistoActivity extends AppCompatActivity {
     }
 
     /**
-     * création de la liste adapter
+     * Méthode de création de la liste adapter
      */
     private void creerListe(){
         ArrayList<Profil> liste;
@@ -51,7 +59,7 @@ public class HistoActivity extends AppCompatActivity {
     }
 
     /**
-     * demande d'affichage du profil dans CalculActivity
+     * M2thode de demande d'affichage du profil dans CalculActivity
      * @param profil
      */
     public void afficheProfil(Profil profil){
@@ -62,7 +70,7 @@ public class HistoActivity extends AppCompatActivity {
     }
 
     /**
-     * méthode événementielle sur le clic de l'image du retour au menu
+     * Evénement sur le clic de l'image du retour au menu
      */
     private void ecouteRetourMenu(){
         ImageButton btnRetourMenu = (ImageButton)findViewById(R.id.btnRetourHisto);

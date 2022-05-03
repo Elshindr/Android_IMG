@@ -7,7 +7,7 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
 /**
- * Classe technique de connexion au web service
+ * Classe AccesWS technique de connexion au web service
  */
 public class AccesWS extends AsyncTask<String, Integer, Long> {
 
@@ -21,7 +21,7 @@ public class AccesWS extends AsyncTask<String, Integer, Long> {
     private String methode;
 
     /**
-     * constructeur : ne fait rien
+     * Constructeur de la Classe AccesWS
      */
     public AccesWS(String url, String namespace, String methode){
         this.url = url;
@@ -31,7 +31,7 @@ public class AccesWS extends AsyncTask<String, Integer, Long> {
     }
 
     /**
-     * Ajout de paramètres pour la méthode invoquée
+     * Méthode d'ajout de paramètres pour la méthode invoquée
      * @param nom
      * @param valeur
      */
@@ -64,7 +64,7 @@ public class AccesWS extends AsyncTask<String, Integer, Long> {
     }
 
     /**
-     * Sur le retour du serveur, envoi l'information retournée à processFinish
+     * Méthode appellée sur le retour du serveur, envoi l'information retournée à processFinish
      * @param result
      */
     @Override

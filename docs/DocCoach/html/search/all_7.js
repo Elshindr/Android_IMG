@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['mainactivity_0',['MainActivity',['../classcom_1_1example_1_1coach_1_1vue_1_1_main_activity.html',1,'com::example::coach::vue']]],
-  ['mesoutils_1',['MesOutils',['../classcom_1_1example_1_1coach_1_1outils_1_1_mes_outils.html',1,'com::example::coach::outils']]],
-  ['mysqliteopenhelper_2',['MySQLiteOpenHelper',['../classcom_1_1example_1_1coach_1_1outils_1_1_my_s_q_lite_open_helper.html',1,'com.example.coach.outils.MySQLiteOpenHelper'],['../classcom_1_1example_1_1coach_1_1outils_1_1_my_s_q_lite_open_helper.html#ad025001de438f0f6dd2aa279b21b44ff',1,'com.example.coach.outils.MySQLiteOpenHelper.MySQLiteOpenHelper()']]]
+  ['histoactivity_0',['HistoActivity',['../classcom_1_1example_1_1coach_1_1vue_1_1_histo_activity.html',1,'com::example::coach::vue']]],
+  ['histoactivity_2ejava_1',['HistoActivity.java',['../_histo_activity_8java.html',1,'']]],
+  ['histolistadapter_2',['HistoListAdapter',['../classcom_1_1example_1_1coach_1_1vue_1_1_histo_list_adapter.html',1,'com.example.coach.vue.HistoListAdapter'],['../classcom_1_1example_1_1coach_1_1vue_1_1_histo_list_adapter.html#aebc606a484c6f56716b4dd6f51c6e105',1,'com.example.coach.vue.HistoListAdapter.HistoListAdapter()']]],
+  ['histolistadapter_2ejava_3',['HistoListAdapter.java',['../_histo_list_adapter_8java.html',1,'']]]
 ];

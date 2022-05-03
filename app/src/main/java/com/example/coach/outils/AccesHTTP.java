@@ -11,7 +11,7 @@ import java.net.URLEncoder;
 import android.os.AsyncTask;
 
 /**
- * Classe technique de connexion distante HTTP
+ * Classe AccesHTTP technique de connexion distante HTTP
  */
 public class AccesHTTP extends AsyncTask<String, Integer, Long> {
 
@@ -21,14 +21,14 @@ public class AccesHTTP extends AsyncTask<String, Integer, Long> {
 	private String parametres = ""; // paramètres à envoyer en POST au serveur
 
 	/**
-	 * Constructeur : ne fait rien
+	 * Constructeur de la Classe AccesHTTP: ne fait rien
 	 */
 	public AccesHTTP() {
 		super();
 	}
 
 	/**
-	 * Construction de la chaîne de paramètres à envoyer en POST au serveur
+	 * Méthode  de construction de la chaîne de paramètres à envoyer en POST au serveur
 	 * @param nom
 	 * @param valeur
 	 */
@@ -95,7 +95,7 @@ public class AccesHTTP extends AsyncTask<String, Integer, Long> {
 	}
 
 	/**
-	 * Sur le retour du serveur, envoi l'information retournée à processFinish
+	 * Méthode qui s'execute sur le retour du serveur, envoi l'information retournée à processFinish
 	 * @param result
 	 */
 	@Override

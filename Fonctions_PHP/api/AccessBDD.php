@@ -5,14 +5,23 @@ include_once("ConnexionPDO.php");
  * Classe de construction des requêtes SQL à envoyer à la BDD
  */
 class AccessBDD {
-	
-	public $login="root";
+
+	/*public $login="b0d3e4efbc6f1d";
+	public $mdp="8d1b2c5b";
+	public $bd="heroku_cd447878146fd26";
+	public $serveur="eu-cdbr-west-02.cleardb.net";
+	public $port="3306";	
+	public $conn = null;*/
+        
+         public $login="root";
 	public $mdp="";
 	public $bd="coach";
 	public $serveur="localhost";
 	public $port="3306";	
 	public $conn = null;
-	
+        
+      
+
 	/**
 	 * constructeur : demande de connexion à la BDD
 	 */
@@ -23,7 +32,7 @@ class AccessBDD {
 			throw $e;
 		}
 	}
-	
+
 	/**
 	 * récupération de toutes les lignes d'une table
 	 * @param string $table nom de la table
@@ -36,7 +45,7 @@ class AccessBDD {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * récupération d'une ligne d'une table
 	 * @param string $table nom de la table
@@ -53,7 +62,7 @@ class AccessBDD {
 			return null;
 		}
 	}
-		
+
 	/**
 	 * suppresion d'une ligne dans une table
 	 * @param string $table nom de la table
@@ -100,24 +109,32 @@ class AccessBDD {
 	}
 
 	/**
-	 * modification d'une ligne dans une table
+	 * Modification d'une ligne dans une table
 	 * @param string $table nom de la table
 	 * @param string $id id (datemesure) de la ligne à modifier
 	 * @param array $param nom et valeur de chaque champs de la ligne
 	 * @return true si la modification a fonctionné
 	 */	
 	public function updateOne($table, $id, $champs){
-		if($this->conn != null && $champs != null){
-			$champs["id"] = $id;
+	
+            if($this->conn != null && $champs != null){
 			// construction de la requête
 			$requete = "update $table set ";
 			foreach ($champs as $key => $value){
-				$requete .= "$key=:$key,";
+                            if($key == "datemesure"){
+                                $requete .= "$key='$value',";
+                            }
+                            else{
+                                $requete .= "$key=$value,";
+                            }	
 			}
 			// (enlève la dernière virgule)
 			$requete = substr($requete, 0, strlen($requete)-1);
-			$requete .= " where datemesure=:id;";		
-			return $this->conn->execute($requete, $champs);		
+                        $champs["id"] = $id;
+			$requete .= " where datemesure='$id';";
+                        
+                 
+                        return $this->conn->execute($requete, $champs);                   
 		}else{
 			return null;
 		}

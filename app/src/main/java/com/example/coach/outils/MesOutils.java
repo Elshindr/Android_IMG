@@ -6,9 +6,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Classe MesOutils
+ * Contient des méthodes utilitaires
+ */
 public abstract class MesOutils {
     /**
-     * reçoit une date au format String et la convertit au format Date
+     * Methode qui reçoit une date au format String et la convertit au format Date
      * @param uneDate au format String
      * @param expectedPattern pour formater la date
      * @return date convertie au format Date
@@ -25,7 +29,7 @@ public abstract class MesOutils {
     }
 
     /**
-     * reçoit une date au format String et la convertit au format Date avec pattern précis
+     * Methode qui reçoit une date au format String et la convertit au format Date avec pattern précis
      * @param uneDate au format String
      * @return date convertie au format Date
      */
@@ -36,7 +40,7 @@ public abstract class MesOutils {
     }
 
     /**
-     * reçoit une date au format Date et la convertit au format String
+     * Methode qui reçoit une date au format Date et la convertit au format String
      * @param uneDate au format Date
      * @return date convertie au format String
      */

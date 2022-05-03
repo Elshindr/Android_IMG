@@ -22,11 +22,11 @@ if($contenu != ""){
 
 // traitement suivant le verbe HTTP utilisé
 if($_SERVER['REQUEST_METHOD'] === 'GET'){
-	$controle->get($table, $id);
+   $controle->get($table, $id);
 }else if($_SERVER['REQUEST_METHOD'] === 'POST'){
-	$controle->post($table, $contenu);
-//}else if($_SERVER['REQUEST_METHOD'] === 'PUT'){
-//	$controle->put($table, $id, $contenu);
+   $controle->post($table, $contenu);
+}else if($_SERVER['REQUEST_METHOD'] === 'PUT'){
+ $controle->put($table, $id, $contenu);
 }else if($_SERVER['REQUEST_METHOD'] === 'DELETE'){
-	$controle->delete($table, $id);
+   $controle->delete($table, $id);
 }

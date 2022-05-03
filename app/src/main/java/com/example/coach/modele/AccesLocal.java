@@ -5,10 +5,19 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
+import com.example.coach.outils.AccesREST;
 import com.example.coach.outils.MesOutils;
 import com.example.coach.outils.MySQLiteOpenHelper;
+
+import org.json.JSONObject;
+
 import java.util.Date;
 
+/**
+ * Classe AccesLocal
+ * Permet de récupérer les informations dans la base local Sqlite
+ */
 public class AccesLocal {
     private String nomBase = "bdCoach.sqlite";
     private Integer versionBase = 1;
@@ -24,7 +33,7 @@ public class AccesLocal {
     }
 
     /**
-     * ajout d'un profil dans la BDD
+     * Méthode d'ajout d'un profil dans la BDD
      * @param profil
      */
     public void ajout(Profil profil){
@@ -40,7 +49,7 @@ public class AccesLocal {
     }
 
     /**
-     * retourne le dernier profil enregistré dans la BDD
+     * Méthode qui retourne le dernier profil enregistré dans la BDD
      * @return dernier profil
      */
     public Profil recupDernier(){
@@ -61,4 +70,5 @@ public class AccesLocal {
         curseur.close();
         return profil;
     }
+
 }

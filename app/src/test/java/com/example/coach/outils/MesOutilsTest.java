@@ -8,6 +8,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Classe MesOutilsTest hérite de TestCase
+ */
 public class MesOutilsTest extends TestCase {
     SimpleDateFormat formatter = new SimpleDateFormat("EEE MMM dd hh:mm:ss 'GMT+00:00' yyyy");
     Date date;
@@ -21,13 +24,21 @@ public class MesOutilsTest extends TestCase {
     // création d’un profil : femme de 67kg, 1m65, 35 ans
     private Profil profil = new Profil(new Date(),  165,  35,  0, 1);
 
+    /**
+     * Methode de test sur la conversion d'une chaine en Date
+     */
     public void testConvertStringToDate() {
         //assertEquals();
     }
 
+    /**
+     * Methode de test sur la conversion d'une chaine en Date
+     */
     public void testTestConvertStringToDate() {
     }
-
+    /**
+     * Methode de test sur la conversion d'une date en chaine
+     */
     public void testConvertDateToString() {
     }
 }

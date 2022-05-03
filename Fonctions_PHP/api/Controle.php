@@ -5,9 +5,9 @@ include_once("AccessBDD.php");
  * Contrôleur : reçoit et traite les demandes du point d'entrée
  */
 class Controle{
-	
+
 	private $accessBDD;
-	
+
 	public function __construct(){
 		try{
 			$this->accessBDD = new AccessBDD();
@@ -16,7 +16,7 @@ class Controle{
 			die();
 		}
 	}
-	
+
 	/**
 	 * réponse renvoyée (affichée) au client au format json
 	 * @param int $code code standard HTTP
@@ -87,11 +87,12 @@ class Controle{
 	 */
 	public function put($table, $id, $champs){
 		$result = $this->accessBDD->updateOne($table, $id, $champs);	
+                   
 		if ($result == null || $result == false){
-			$this->reponse(400, "requete invalide");
+			$this->reponse(400, "requete invalide ");
 		}else{	
 			$this->reponse(200, "OK");
 		}
 	}
-	
-}
+
+} 

@@ -8,6 +8,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Hashtable;
 
+/**
+ * Classe Métier Profil
+ * Hérite de Serializable, Comparable
+ */
 public class Profil implements Serializable, Comparable {
 
     // constantes
@@ -25,8 +29,8 @@ public class Profil implements Serializable, Comparable {
     private String message;
 
     /**
-     * constructeur : valorise poids, taille, age, sexe
-     * et appelle les méthodes pour valoriser img et message
+     * Constructeur de la Classe Profil
+     * Valorise poids, taille, age, sexe et appelle les méthodes pour valoriser img et message
      * @param dateMesure
      * @param poids
      * @param taille en cm
@@ -44,7 +48,7 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * getter sur dateMesure
+     * Getter sur dateMesure
      * @return dateMesure
      */
     public Date getDateMesure() {
@@ -52,7 +56,7 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * getter sur poids
+     * Getter sur poids
      * @return poids
      */
     public Integer getPoids() {
@@ -60,7 +64,7 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * getter sur taille
+     * Getter sur taille
      * @return taille en cm
      */
     public Integer getTaille() {
@@ -68,7 +72,7 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * getter sur age
+     * Getter sur age
      * @return age
      */
     public Integer getAge() {
@@ -76,7 +80,7 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * getter sur sexe
+     * Getter sur sexe
      * @return 1 pour homme, 0 pour femme
      */
     public Integer getSexe() {
@@ -84,7 +88,7 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * getter sur img
+     * Getter sur img
      * @return img
      */
     public float getImg() {
@@ -92,7 +96,7 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * getter sur message
+     * Getter sur message
      * @return "normal", "trop faible", "trop élevé"
      */
     public String getMessage() {
@@ -100,7 +104,7 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * calcul de l'img
+     * Méthode de calcul de l'img
      */
     private void calculIMG(){
         float taillecm = ((float)taille)/100;
@@ -108,7 +112,7 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * création du message suivant la valeur de l'img et des constantes
+     * Méthode de création du message selon la valeur de l'img et des constantes
      */
     private void resultIMG(){
         message = "Normal";
@@ -127,7 +131,7 @@ public class Profil implements Serializable, Comparable {
     }
 
     /**
-     * convertit les informations du profil au format JSON
+     * Méthode de conversion des informations du profil au format JSON
      * @return un JSONObject contenant les informations du profil
      */
     public JSONObject convertToJSONObject(){

@@ -20,6 +20,10 @@ import com.example.coach.controleur.Controle;
 import com.example.coach.modele.Profil;
 import com.example.coach.outils.MesOutils;
 
+/**
+ * Classe CalculActivity
+ * Affichage de la page de Calcul
+ */
 public class CalculActivity extends AppCompatActivity {
 
     private EditText txtPoids;
@@ -32,11 +36,10 @@ public class CalculActivity extends AppCompatActivity {
     private Button btnCalc;
     private Controle controle;
 
-    private Profil profil;
     private Boolean modif = false;
 
     /**
-     * Création de l'interfac graphique
+     * Méthode de création de l'interface graphique
      * @param savedInstanceState
      */
     @Override
@@ -47,7 +50,7 @@ public class CalculActivity extends AppCompatActivity {
     }
 
     /**
-     * Initialisations :
+     * Méthode d'initialisations :
      * récupération des composants graphiques et du contrôleur
      * demande d'écoute du clic sur le bouton calcul
      */
@@ -68,7 +71,7 @@ public class CalculActivity extends AppCompatActivity {
     }
 
     /**
-     * méthode événementielle sur le clic de l'image du retour au menu
+     * Evénement sur le clic de l'image du retour au menu
      */
     private void ecouteRetourMenu(){
         ImageButton btnRetourMenu = (ImageButton)findViewById(R.id.btnRetourCalcul);
@@ -85,7 +88,7 @@ public class CalculActivity extends AppCompatActivity {
     }
 
     /**
-     * Méthode événementielle sur le clic du bouton calculer
+     * Evénement sur le clic du bouton calculer
      * récupère les informations saisies et demande l'affichage du résultat
      */
     private void ecouteCalcul(){
@@ -112,7 +115,7 @@ public class CalculActivity extends AppCompatActivity {
     }
 
     /**
-     * calcule et affiche le l'img (le smiley et le message correspondant)
+     * Méthode de calcul et affichage de l'img (le smiley et le message correspondant)
      * @param poids
      * @param taille
      * @param age
@@ -121,8 +124,10 @@ public class CalculActivity extends AppCompatActivity {
     private void afficheResult(Integer poids, Integer taille, Integer age, Integer sexe){
         if(modif){
             controle.modifierProfil(poids, taille, age, sexe);
+            modif = false;
+            controle.setProfil(null);
         }
-        else if(!modif){
+        else{
             controle.creerProfil(poids, taille, age, sexe);
         }
 
@@ -139,15 +144,16 @@ public class CalculActivity extends AppCompatActivity {
             lblIMG.setTextColor(Color.RED);
         }
         lblIMG.setText(MesOutils.format2Decimal(img)+" : IMG "+message);
-        modif = false;
+
     }
 
     /**
-     * récupère les informations du profil  et les affiche
+     * Méthode qui récupère les informations du profil et les affiche
      */
     public void recupProfil(){
 
         if(controle.getTaille() != null){
+            modif = true;
             txtTaille.setText(controle.getTaille().toString());
             txtPoids.setText(controle.getPoids().toString());
             txtAge.setText(controle.getAge().toString());

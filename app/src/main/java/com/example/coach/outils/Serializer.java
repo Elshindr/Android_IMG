@@ -12,12 +12,11 @@ import android.content.Context;
 /**
  * Classe qui permet de serialiser et deserialiser des objets
  * @author Emds
- *
  */
 public abstract class Serializer {
 
 	/**
-	 * Serialisation d'un objet
+	 * Méthode de serialisation d'un objet
 	 * @param filename
 	 * @param object
 	 */
@@ -41,7 +40,7 @@ public abstract class Serializer {
 	}
 	
 	/**
-	 * Deserialisation d'un objet
+	 * Méthode  de deserialisation d'un objet
 	 * @param filename
 	 * @param context
 	 * @return

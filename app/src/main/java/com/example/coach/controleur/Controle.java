@@ -4,32 +4,34 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.coach.modele.AccesDistant;
+import com.example.coach.modele.AccesLocal;
 import com.example.coach.modele.Profil;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Controleur
+ * Classe Controle du Controleur
  */
 public final class Controle {
 
     private static Controle instance = null ;
     private static Profil profil;
-    //private static String nomFic = "saveprofil";
+    private static String nomFic = "saveprofil";
     private static AccesDistant accesDistant;
+    private static AccesLocal accesLocal;
     private static Context context;
     private ArrayList<Profil> lesProfils;
 
     /**
-     * constructeur privé
+     * Constructeur privé de la Classe Controle
      */
     private Controle(){
         super();
     }
 
     /**
-     * récupération de l'instance unique de Controle
+     * Méthode de récupération de l'instance unique de Controle
      * @return instance
      */
     public static final Controle getInstance(Context context){
@@ -38,6 +40,10 @@ public final class Controle {
             if(context != null) {
                 Controle.context = context;
             }
+
+           // accesLocal = new AccesLocal(context);
+           // profil = accesLocal.recupDernier();
+
             accesDistant = new AccesDistant();
             accesDistant.envoi("tous", null);
         }
@@ -45,10 +51,10 @@ public final class Controle {
     }
 
     /**
-     * Création du profil
-     * @param poids
+     * Méthode de création d'un profil
+     * @param poids int le poids
      * @param taille en cm
-     * @param age
+     * @param age int age
      * @param sexe 1 pour homme, 0 pour femme
      */
     public void creerProfil(Integer poids, Integer taille, Integer age, Integer sexe){
@@ -58,25 +64,23 @@ public final class Controle {
     }
 
     /**
-     * modification d'un profil
-     * @param poids
-     * @param taille
-     * @param age
-     * @param sexe
+     * Méthode de modification d'un profil
+     * @param poids int le poids
+     * @param taille int la taille
+     * @param age int age
+     * @param sexe int sexe ( 1 Femme / 0 Homme)
      */
     public void modifierProfil(Integer poids, Integer taille, Integer age, Integer sexe){
         Profil updateProfil = new Profil(profil.getDateMesure(), poids, taille, age, sexe);
 
         lesProfils.remove(profil);
         lesProfils.add(updateProfil);
-        setProfil(updateProfil);
-
         accesDistant.envoi("modif", updateProfil.convertToJSONObject());
     }
 
     /**
-     * suppression d'un profil
-     * @param profil
+     * Méthode de suppression d'un profil
+     * @param profil un objet profil
      */
     public void delProfil(Profil profil){
         accesDistant.envoi("suppr", profil.convertToJSONObject());
@@ -84,8 +88,8 @@ public final class Controle {
     }
 
     /**
-     * getter sur l'img du profil
-     * @return img
+     * Méthode de getter sur l'img du profil
+     * @return img une image
      */
     public float getImg(){
         if(lesProfils.size() == 0){
@@ -96,7 +100,7 @@ public final class Controle {
     }
 
     /**
-     * getter sur le message du profil
+     * Méthode de getter sur le message du profil
      * @return message
      */
     public String getMessage(){
@@ -108,7 +112,7 @@ public final class Controle {
     }
 
     /**
-     * getter sur le poids du profil
+     * Méthode de getter sur le poids du profil
      * @return poids
      */
     public Integer getPoids(){
@@ -119,8 +123,8 @@ public final class Controle {
     }
 
     /**
-     * getter sur la taille du profil
-     * @return taille
+     * Méthode de getter sur la taille du profil
+     * @return taille en cm
      */
     public Integer getTaille(){
         if(profil != null){
@@ -130,8 +134,8 @@ public final class Controle {
     }
 
     /**
-     * getter sur l'age du profil
-     * @return age
+     * Méthode de getter sur l'age du profil
+     * @return age int
      */
     public Integer getAge(){
         if(profil != null){
@@ -140,8 +144,8 @@ public final class Controle {
         return null;
     }
     /**
-     * getter sur le sexe du profil
-     * @return sexe
+     * Méthode de getter sur le sexe du profil
+     * @return sexe int
      */
     public Integer getSexe(){
         if(profil != null){
@@ -151,23 +155,23 @@ public final class Controle {
     }
 
     /**
-     * setter sur le profil
-     * @param profil
+     * Méthode de setter sur le profil
+     * @param profil un objet de type profil
      */
     public void setProfil(Profil profil){
         Controle.profil = profil;
     }
 
     /**
-     * getter sur lesProfils
-     * @return lesProfils
+     * Méthode de getter sur lesProfils
+     * @return lesProfils Liste de profils
      */
     public ArrayList<Profil> getLesProfils() {
         return lesProfils;
     }
 
     /**
-     * setter sur lesProfils
+     * Méthode de setter sur lesProfils
      * @param lesProfils
      */
     public void setLesProfils(ArrayList<Profil> lesProfils) {

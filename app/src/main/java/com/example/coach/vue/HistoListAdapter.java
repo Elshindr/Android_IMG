@@ -17,6 +17,10 @@ import com.example.coach.outils.MesOutils;
 
 import java.util.ArrayList;
 
+/**
+ * Classe de HistoListAdapter
+ * Gére la création des listes de type adapter
+ */
 public class HistoListAdapter extends BaseAdapter {
 
     private ArrayList<Profil> lesProfils;
@@ -24,7 +28,7 @@ public class HistoListAdapter extends BaseAdapter {
     private Context context;
 
     /**
-     * Constructeur
+     * Constructeur de HistoListAdapter
      * @param context
      * @param lesProfils
      */
@@ -156,7 +160,8 @@ public class HistoListAdapter extends BaseAdapter {
 
 
     /**
-     * Objets graphiques
+     * Classe interne ViewProperties
+     * Permet des créer les Objets graphiques de la liste adapter
      */
     private class ViewProperties{
         TextView txtListDate;

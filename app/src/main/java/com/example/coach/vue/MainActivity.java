@@ -10,10 +10,13 @@ import android.widget.ImageButton;
 import com.example.coach.R;
 import com.example.coach.controleur.Controle;
 
+/**
+ * Classe MainActivity
+ */
 public class MainActivity extends AppCompatActivity {
 
     /**
-     * Creation de l'interface graphique d'accueil
+     * Méthode de creation de l'interface graphique d'accueil
      * @param savedInstanceState
      */
     @Override
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
     /**
-     * initialisations
+     * Methode d'initialisation des composants
      */
     private void init(){
         Controle.getInstance(this);
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Methode evenementielle pour lancer le retour vers l'activité d'accueil
+     * Evenement pour lancer le retour vers l'activité d'accueil
      * @param btnImg
      * @param classe
      */

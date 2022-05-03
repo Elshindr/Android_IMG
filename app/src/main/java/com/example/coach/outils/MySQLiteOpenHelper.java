@@ -6,6 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * Classe MySQLiteOpenHelper hérite de SQLiteOpenHelper
+ */
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 	
 	// propriété de création d'une table dans la base de données
@@ -17,7 +20,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 			+ "sexe INTEGER NOT NULL);";
 
     /**
-     * Construction de l'accès à une base de données locale
+     * Constructeur de la Classe MySQLiteOpenHelper
+	 * Permet l'accès à une base de données locale
      * @param context
      * @param name
      * @param version
@@ -28,7 +32,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 	}
 
     /**
-     * méthode redéfinie appelée automatiquement par le constructeur
+     * Méthode redéfinie
+	 * Appelée automatiquement par le constructeur
      * uniquement si celui-ci repère que la base n'existe pas encore
      * @param db
      */
@@ -39,7 +44,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 	}
 
     /**
-     * méthode redéfinie appelée automatiquement s'il y a changement de version de la base
+     * Méthode redéfinie
+	 * Appelée automatiquement s'il y a changement de version de la base
      * @param db
      * @param oldVersion
      * @param newVersion
