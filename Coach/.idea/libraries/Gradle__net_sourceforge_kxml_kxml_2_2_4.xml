@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: net.sourceforge.kxml:kxml:2.2.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sourceforge.kxml/kxml/2.2.4/1642506e490548d96984b8370e44257c156097f7/kxml-2.2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sourceforge.kxml/kxml/2.2.4/97ca8eaa0e57288d1d0b09ba23a76d917255872/kxml-2.2.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sourceforge.kxml/kxml/2.2.4/40d659c4fe53caa1dfce5b77ddec040726f2e27a/kxml-2.2.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
