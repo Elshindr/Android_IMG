@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "CoachIMG", "index.html", [
-    [ "Welcome to GitHub Pages", "index.html", null ],
+    [ "Android IMG", "index.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
