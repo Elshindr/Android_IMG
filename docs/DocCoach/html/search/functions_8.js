@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['modifierprofil_0',['modifierProfil',['../classcom_1_1example_1_1coach_1_1controleur_1_1_controle.html#a585889fc0e78f62da179763ddd28ae33',1,'com::example::coach::controleur::Controle']]],
-  ['mysqliteopenhelper_1',['MySQLiteOpenHelper',['../classcom_1_1example_1_1coach_1_1outils_1_1_my_s_q_lite_open_helper.html#ad025001de438f0f6dd2aa279b21b44ff',1,'com::example::coach::outils::MySQLiteOpenHelper']]]
+  ['init_0',['init',['../classcom_1_1example_1_1coach_1_1vue_1_1_calcul_activity.html#aba72f83d231d5ab2d1d3c3a9d7977c9c',1,'com.example.coach.vue.CalculActivity.init()'],['../classcom_1_1example_1_1coach_1_1vue_1_1_histo_activity.html#a9090d6f4474359471257263da9687d1f',1,'com.example.coach.vue.HistoActivity.init()'],['../classcom_1_1example_1_1coach_1_1vue_1_1_main_activity.html#a7001ace757b1174dd5329cd3cacf2f7e',1,'com.example.coach.vue.MainActivity.init()']]]
 ];

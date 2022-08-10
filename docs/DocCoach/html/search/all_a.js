@@ -1,19 +1,5 @@
 var searchData=
 [
-  ['mainactivity_0',['MainActivity',['../classcom_1_1example_1_1coach_1_1vue_1_1_main_activity.html',1,'com::example::coach::vue']]],
-  ['mainactivity_2ejava_1',['MainActivity.java',['../_main_activity_8java.html',1,'']]],
-  ['maxfemme_2',['maxFemme',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil.html#a37756b46734d6afb1ce697c7f7254f72',1,'com::example::coach::modele::Profil']]],
-  ['maxhomme_3',['maxHomme',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil.html#a26571c20b86323d3c698ec1b56ad54a5',1,'com::example::coach::modele::Profil']]],
-  ['mesoutils_4',['MesOutils',['../classcom_1_1example_1_1coach_1_1outils_1_1_mes_outils.html',1,'com::example::coach::outils']]],
-  ['mesoutils_2ejava_5',['MesOutils.java',['../_mes_outils_8java.html',1,'']]],
-  ['mesoutilstest_6',['MesOutilsTest',['../classcom_1_1example_1_1coach_1_1outils_1_1_mes_outils_test.html',1,'com::example::coach::outils']]],
-  ['mesoutilstest_2ejava_7',['MesOutilsTest.java',['../_mes_outils_test_8java.html',1,'']]],
-  ['message_8',['message',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil.html#ae53d817955bf18a284ec652b11a0987d',1,'com.example.coach.modele.Profil.message()'],['../classcom_1_1example_1_1coach_1_1modele_1_1_profil_test.html#a32e2467d98a9ef2debac6c2b3c574ebc',1,'com.example.coach.modele.ProfilTest.message()']]],
-  ['methode_9',['methode',['../classcom_1_1example_1_1coach_1_1outils_1_1_acces_w_s.html#a2e912dd5f9d3c68c5a2fd7d8f236e764',1,'com::example::coach::outils::AccesWS']]],
-  ['min_5ffemme_10',['MIN_FEMME',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil.html#a66224d2710344a8aaadc381e1d48531e',1,'com::example::coach::modele::Profil']]],
-  ['minhomme_11',['minHomme',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil.html#abbbe9692524c0f5e6487bc1450e774e2',1,'com::example::coach::modele::Profil']]],
-  ['modif_12',['modif',['../classcom_1_1example_1_1coach_1_1vue_1_1_calcul_activity.html#a7f885c845d81943e41d85b5acaee4b0d',1,'com::example::coach::vue::CalculActivity']]],
-  ['modifierprofil_13',['modifierProfil',['../classcom_1_1example_1_1coach_1_1controleur_1_1_controle.html#a585889fc0e78f62da179763ddd28ae33',1,'com::example::coach::controleur::Controle']]],
-  ['mysqliteopenhelper_14',['MySQLiteOpenHelper',['../classcom_1_1example_1_1coach_1_1outils_1_1_my_s_q_lite_open_helper.html',1,'com.example.coach.outils.MySQLiteOpenHelper'],['../classcom_1_1example_1_1coach_1_1outils_1_1_my_s_q_lite_open_helper.html#ad025001de438f0f6dd2aa279b21b44ff',1,'com.example.coach.outils.MySQLiteOpenHelper.MySQLiteOpenHelper()']]],
-  ['mysqliteopenhelper_2ejava_15',['MySQLiteOpenHelper.java',['../_my_s_q_lite_open_helper_8java.html',1,'']]]
+  ['lblimg_0',['lblIMG',['../classcom_1_1example_1_1coach_1_1vue_1_1_calcul_activity.html#a20d12b79a9c1e05d8dc2a3bef8221a79',1,'com::example::coach::vue::CalculActivity']]],
+  ['lesprofils_1',['lesProfils',['../classcom_1_1example_1_1coach_1_1controleur_1_1_controle.html#a60470b662edf4a7c0a8d6c5e0d0e3e92',1,'com.example.coach.controleur.Controle.lesProfils()'],['../classcom_1_1example_1_1coach_1_1vue_1_1_histo_list_adapter.html#a3299c9cdb8af881ae14c6b20dabfba28',1,'com.example.coach.vue.HistoListAdapter.lesProfils()']]]
 ];

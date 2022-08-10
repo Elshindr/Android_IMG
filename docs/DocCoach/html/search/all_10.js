@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['taille_0',['taille',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil.html#a1db1977c836c238cf9334803fdba9d03',1,'com::example::coach::modele::Profil']]],
-  ['testconvertdatetostring_1',['testConvertDateToString',['../classcom_1_1example_1_1coach_1_1outils_1_1_mes_outils_test.html#aedb5717a8b1e24d99c5eb63f81b304f7',1,'com::example::coach::outils::MesOutilsTest']]],
-  ['testconvertstringtodate_2',['testConvertStringToDate',['../classcom_1_1example_1_1coach_1_1outils_1_1_mes_outils_test.html#ae899d4c714f2045a772dc591584cdb68',1,'com::example::coach::outils::MesOutilsTest']]],
-  ['testgetimg_3',['testGetImg',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil_test.html#acc53583b2266feca1bb12cf62d200e87',1,'com::example::coach::modele::ProfilTest']]],
-  ['testgetmessage_4',['testGetMessage',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil_test.html#a96f2956fac49018f5a6ec943d5d2b5a1',1,'com::example::coach::modele::ProfilTest']]],
-  ['testtestconvertstringtodate_5',['testTestConvertStringToDate',['../classcom_1_1example_1_1coach_1_1outils_1_1_mes_outils_test.html#a9e025ba9b62d4cf35e66854a3f0c94b7',1,'com::example::coach::outils::MesOutilsTest']]],
-  ['txtage_6',['txtAge',['../classcom_1_1example_1_1coach_1_1vue_1_1_calcul_activity.html#a39265f44bd58b3ea28fcae38d4d4cc64',1,'com::example::coach::vue::CalculActivity']]],
-  ['txtpoids_7',['txtPoids',['../classcom_1_1example_1_1coach_1_1vue_1_1_calcul_activity.html#a15fbfdda0533776de9e9c1626f6927ef',1,'com::example::coach::vue::CalculActivity']]],
-  ['txttaille_8',['txtTaille',['../classcom_1_1example_1_1coach_1_1vue_1_1_calcul_activity.html#a624e8dfd2b1d859f5c26cfeee68bf4d4',1,'com::example::coach::vue::CalculActivity']]]
+  ['serialize_0',['serialize',['../classcom_1_1example_1_1coach_1_1outils_1_1_serializer.html#a93f6d19bd64425bc31bfa1f339a19b34',1,'com::example::coach::outils::Serializer']]],
+  ['serializer_1',['Serializer',['../classcom_1_1example_1_1coach_1_1outils_1_1_serializer.html',1,'com::example::coach::outils']]],
+  ['serializer_2ejava_2',['Serializer.java',['../_serializer_8java.html',1,'']]],
+  ['serveraddr_3',['SERVERADDR',['../classcom_1_1example_1_1coach_1_1modele_1_1_acces_distant.html#a7049f7c6086362781f87be2fbaf1d833',1,'com::example::coach::modele::AccesDistant']]],
+  ['setlesprofils_4',['setLesProfils',['../classcom_1_1example_1_1coach_1_1controleur_1_1_controle.html#ad1124e045549c2d52ea52d8862f534f1',1,'com::example::coach::controleur::Controle']]],
+  ['setprofil_5',['setProfil',['../classcom_1_1example_1_1coach_1_1controleur_1_1_controle.html#a1797879802b565b89bc261737125658b',1,'com::example::coach::controleur::Controle']]],
+  ['setrequestmethod_6',['setRequestMethod',['../classcom_1_1example_1_1coach_1_1outils_1_1_acces_r_e_s_t.html#ab3d801ba4ca8d9201e6fbc9530a752aa',1,'com::example::coach::outils::AccesREST']]],
+  ['sexe_7',['sexe',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil.html#af68f603612cd50d0f33e3ecc18bf5664',1,'com::example::coach::modele::Profil']]]
 ];

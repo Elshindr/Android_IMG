@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['serialize_0',['serialize',['../classcom_1_1example_1_1coach_1_1outils_1_1_serializer.html#a93f6d19bd64425bc31bfa1f339a19b34',1,'com::example::coach::outils::Serializer']]],
-  ['serializer_1',['Serializer',['../classcom_1_1example_1_1coach_1_1outils_1_1_serializer.html',1,'com::example::coach::outils']]],
-  ['serializer_2ejava_2',['Serializer.java',['../_serializer_8java.html',1,'']]],
-  ['serveraddr_3',['SERVERADDR',['../classcom_1_1example_1_1coach_1_1modele_1_1_acces_distant.html#a7049f7c6086362781f87be2fbaf1d833',1,'com::example::coach::modele::AccesDistant']]],
-  ['setlesprofils_4',['setLesProfils',['../classcom_1_1example_1_1coach_1_1controleur_1_1_controle.html#ad1124e045549c2d52ea52d8862f534f1',1,'com::example::coach::controleur::Controle']]],
-  ['setprofil_5',['setProfil',['../classcom_1_1example_1_1coach_1_1controleur_1_1_controle.html#a1797879802b565b89bc261737125658b',1,'com::example::coach::controleur::Controle']]],
-  ['setrequestmethod_6',['setRequestMethod',['../classcom_1_1example_1_1coach_1_1outils_1_1_acces_r_e_s_t.html#ab3d801ba4ca8d9201e6fbc9530a752aa',1,'com::example::coach::outils::AccesREST']]],
-  ['sexe_7',['sexe',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil.html#af68f603612cd50d0f33e3ecc18bf5664',1,'com::example::coach::modele::Profil']]]
+  ['rdfemme_0',['rdFemme',['../classcom_1_1example_1_1coach_1_1vue_1_1_calcul_activity.html#adf4c875a2c49bcb8fe77a349289afc25',1,'com::example::coach::vue::CalculActivity']]],
+  ['rdhomme_1',['rdHomme',['../classcom_1_1example_1_1coach_1_1vue_1_1_calcul_activity.html#ae383d0b83f4218f2dd998306b216943d',1,'com::example::coach::vue::CalculActivity']]],
+  ['recupdernier_2',['recupDernier',['../classcom_1_1example_1_1coach_1_1modele_1_1_acces_local.html#a735d27c028c2f73189c133436bd9ac9e',1,'com::example::coach::modele::AccesLocal']]],
+  ['recupprofil_3',['recupProfil',['../classcom_1_1example_1_1coach_1_1vue_1_1_calcul_activity.html#ae1a078855453a4ad02ee3c55adb44fb2',1,'com::example::coach::vue::CalculActivity']]],
+  ['reponse_4',['reponse',['../classcom_1_1example_1_1coach_1_1outils_1_1_acces_w_s.html#abf47007566fae583f4b724667eaa1b4d',1,'com::example::coach::outils::AccesWS']]],
+  ['request_5',['request',['../classcom_1_1example_1_1coach_1_1outils_1_1_acces_w_s.html#ae8da9a7740e90665730175a460fc5da5',1,'com::example::coach::outils::AccesWS']]],
+  ['requestmethod_6',['requestMethod',['../classcom_1_1example_1_1coach_1_1outils_1_1_acces_r_e_s_t.html#a65b3ae584ddf83636505c73b6e43b287',1,'com::example::coach::outils::AccesREST']]],
+  ['resultimg_7',['resultIMG',['../classcom_1_1example_1_1coach_1_1modele_1_1_profil.html#abb126758763cd703cbc7793bbc24c3d3',1,'com::example::coach::modele::Profil']]],
+  ['ret_8',['ret',['../classcom_1_1example_1_1coach_1_1outils_1_1_acces_h_t_t_p.html#ade938ad0a12db9f4ab282f11dd2506b8',1,'com.example.coach.outils.AccesHTTP.ret()'],['../classcom_1_1example_1_1coach_1_1outils_1_1_acces_r_e_s_t.html#a1be9119ead448c7b009ebdc3d4f8b6ad',1,'com.example.coach.outils.AccesREST.ret()']]]
 ];
